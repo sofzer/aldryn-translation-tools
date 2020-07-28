@@ -9,6 +9,7 @@ from django.utils.translation import ugettext as _
 
 from cms.utils.i18n import get_current_language
 from cms.utils.urlutils import admin_reverse
+from django.utils.html import format_html
 
 
 class LinkedRelatedInlineMixin(object):
@@ -129,7 +130,7 @@ class AllTranslationsMixin(object):
                 title=title,
             )
             langs.append(link)
-        return ''.join(langs)
+        return format_html(''.join(langs))
     all_translations.short_description = 'Translations'
     all_translations.allow_tags = True
 
